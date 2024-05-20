@@ -15,16 +15,21 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnAdd_clicked()
 {
-    QString txtTitle =  ui->name->text();
-    QString txtDuration = ui->reps->text();
+    QString name =  ui->name->text();
+    QString sets = ui->sets->text();
+    QString reps = ui->reps->text();
+    QString weight = ui->weight->text();
 
-    if(!txtTitle.isEmpty() && !txtDuration.isEmpty()){
-        QString workoutDetails = txtTitle + " - " + txtDuration + " Minutes.";
+    if(!name.isEmpty() && !sets.isEmpty() && !reps.isEmpty() && !weight.isEmpty())
+    {
+        QString workoutDetails = name + ": " + sets + " sets\n" + reps + " reps\n " + weight + "kg\n";
         ui->listWorkouts->addItem(workoutDetails);
 
         //clear inputs
         ui->name->clear();
+        ui->sets->clear();
         ui->reps->clear();
+        ui->weight->clear();
     }
 }
 
