@@ -28,6 +28,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    QString readFromFile();
+    void loadItemsFromFile();
+    void appendItemToFile(const QString &item);
+    void deleteItemFromFile(const QString &itemName);
 };
 #endif // MAINWINDOW_H

@@ -54,7 +54,6 @@
      <widget class="QLabel" name="setsLable">
       <property name="styleSheet">
        <string notr="true">QLabel{
-	color:black;
 	font-size:15px;
 }</string>
       </property>
@@ -77,7 +76,6 @@
      <widget class="QLabel" name="repsLable">
       <property name="styleSheet">
        <string notr="true">QLabel{
-	color:black;
 	font-size:15px;
 }</string>
       </property>
@@ -113,7 +111,6 @@
      <widget class="QLabel" name="weightLabel">
       <property name="styleSheet">
        <string notr="true">QLabel{
-	color:black;
 	font-size:15px;
 }</string>
       </property>
@@ -126,7 +123,6 @@
      <widget class="QLabel" name="nameLabel">
       <property name="styleSheet">
        <string notr="true">QLabel{
-	color:black;
 	font-size:15px;
 }</string>
       </property>
