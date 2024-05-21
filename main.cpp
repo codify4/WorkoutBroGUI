@@ -1,11 +1,48 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+#include <QStyleFactory>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
+    QIcon appIcon("C:/Users/User/Desktop/Progaming/GUI_apps/Workout Bro/images/WorkoutBroLogo.png");
+    a.setWindowIcon(appIcon);
+    a.setDesktopFileName("Workout Bro");
+
+    a.setStyle(QStyleFactory::create("Fusion"));
+
+    a.setStyleSheet(R"(
+        QWidget {
+            background-color: #2E2E2E;
+            color: #FFFFFF;
+        }
+        QLabel {
+            color: #FFFFFF;
+        }
+        QLineEdit {
+            background-color: #4E4E4E;
+            color: #FFFFFF;
+            border: 1px solid #5E5E5E;
+        }
+        QPushButton {
+            background-color: #4E4E4E;
+            color: #FFFFFF;
+            border: 1px solid #5E5E5E;
+        }
+        QPushButton:hover {
+            background-color: #5E5E5E;
+        }
+        QPushButton:pressed {
+            background-color: #3E3E3E;
+        }
+        QListWidget {
+            background-color: #4E4E4E;
+            color: #FFFFFF;
+            border: 1px solid #5E5E5E;
+        }
+    )");
 
     w.show();
     return a.exec();

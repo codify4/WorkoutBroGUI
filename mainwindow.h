@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "qlistwidget.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -19,6 +20,10 @@ public:
 
 private slots:
     void on_btnAdd_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_listWorkouts_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;

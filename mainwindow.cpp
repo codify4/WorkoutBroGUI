@@ -6,12 +6,18 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QWidget::setWindowTitle("Workout Bro");
+
+    // QPixmap pic("C:/Users/User/Desktop/Progaming/GUI_apps/WorkoutTracker/images/WorkoutBroLogo.png");
+    // ui->imgLabel->setPixmap(pic);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 void MainWindow::on_btnAdd_clicked()
 {
@@ -22,7 +28,7 @@ void MainWindow::on_btnAdd_clicked()
 
     if(!name.isEmpty() && !sets.isEmpty() && !reps.isEmpty() && !weight.isEmpty())
     {
-        QString workoutDetails = name + ": " + sets + " sets\n" + reps + " reps\n " + weight + "kg\n";
+        QString workoutDetails = name + ": " + sets + " sets\n" + reps + " reps\n" + weight + "kg";
         ui->listWorkouts->addItem(workoutDetails);
 
         //clear inputs
@@ -31,5 +37,10 @@ void MainWindow::on_btnAdd_clicked()
         ui->reps->clear();
         ui->weight->clear();
     }
+}
+
+void MainWindow::on_listWorkouts_itemDoubleClicked(QListWidgetItem *item)
+{
+    delete ui->listWorkouts->takeItem(ui->listWorkouts->row(item));
 }
 
