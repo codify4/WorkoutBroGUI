@@ -42,7 +42,7 @@ void MainWindow::on_btnAdd_clicked()
         ui->weight->clear();
 
         QFile file("C:/Users/User/Desktop/Progaming/GUI_apps/Workout Bro/SavedWorkouts/Excercises.txt");
-        if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        if (!file.open(QIODevice::Append | QIODevice::Text)) {
             qDebug() << "Could not open file for writing:" << file.errorString();
             return;
         }
