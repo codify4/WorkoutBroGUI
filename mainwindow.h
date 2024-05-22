@@ -20,9 +20,6 @@ public:
 
 private slots:
     void on_btnAdd_clicked();
-
-    void on_pushButton_clicked();
-
     void on_listWorkouts_itemDoubleClicked(QListWidgetItem *item);
 
 private:
@@ -31,5 +28,6 @@ private:
     void loadItemsFromFile();
     void appendItemToFile(const QString &item);
     void deleteItemFromFile(const QString &itemName);
+    QString getFilePath(const QString &fileName);
 };
 #endif // MAINWINDOW_H

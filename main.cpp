@@ -7,8 +7,9 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    QIcon appIcon("C:/Users/User/Desktop/Progaming/GUI_apps/Workout Bro/images/WorkoutBroLogo.png");
-    a.setWindowIcon(appIcon);
+
+    a.setWindowIcon(QIcon(":/images/2.png"));
+
     a.setDesktopFileName("Workout Bro");
 
     a.setStyle(QStyleFactory::create("Fusion"));

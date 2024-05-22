@@ -1,9 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QCoreApplication>
+#include <QDir>
+#include <QFile>
+#include <QStandardPaths>
+
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,7 +26,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 void MainWindow::on_btnAdd_clicked()
 {
@@ -54,8 +59,10 @@ void MainWindow::on_listWorkouts_itemDoubleClicked(QListWidgetItem *item)
 }
 
 void MainWindow::loadItemsFromFile() {
-    QString filePath = "C:/Users/User/Desktop/Progaming/GUI_apps/Workout Bro/SavedWorkouts/Excercises.txt";
-    QFile file(filePath);
+    // Get the application's directory
+    QString dataFilePath = getFilePath("storage/Excercises.txt");
+
+    QFile file(dataFilePath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Could not open file for reading:" << file.errorString();
         return;
@@ -72,8 +79,11 @@ void MainWindow::loadItemsFromFile() {
 }
 
 void MainWindow::appendItemToFile(const QString &item) {
-    QString filePath = "C:/Users/User/Desktop/Progaming/GUI_apps/Workout Bro/SavedWorkouts/Excercises.txt";
-    QFile file(filePath);
+    // Get the application's directory
+    QString dataFilePath = getFilePath("storage/Excercises.txt");
+
+
+    QFile file(dataFilePath);
     if (!file.open(QIODevice::Append | QIODevice::Text)) {
         qDebug() << "Could not open file for appending:" << file.errorString();
         return;
@@ -87,8 +97,11 @@ void MainWindow::appendItemToFile(const QString &item) {
 }
 
 void MainWindow::deleteItemFromFile(const QString &itemName) {
-    QString filePath = "C:/Users/User/Desktop/Progaming/GUI_apps/Workout Bro/SavedWorkouts/Excercises.txt";
-    QFile inputFile(filePath);
+    // Get the application's directory
+    QString dataFilePath = getFilePath("storage/Excercises.txt");
+
+
+    QFile inputFile(dataFilePath);
     if (!inputFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Could not open file for reading:" << inputFile.errorString();
         return;
@@ -104,7 +117,7 @@ void MainWindow::deleteItemFromFile(const QString &itemName) {
     }
     inputFile.close();
 
-    QFile outputFile(filePath);
+    QFile outputFile(dataFilePath);
     if (!outputFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)) {
         qDebug() << "Could not open file for writing:" << outputFile.errorString();
         return;
@@ -116,4 +129,10 @@ void MainWindow::deleteItemFromFile(const QString &itemName) {
     }
     outputFile.close();
     qDebug() << "Successfully deleted item from file.";
+}
+
+QString MainWindow::getFilePath(const QString &fileName) {
+    QString appDir = QCoreApplication::applicationDirPath();
+    QString dataFilePath = QDir(appDir).filePath(fileName);
+    return dataFilePath;
 }
