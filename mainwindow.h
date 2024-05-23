@@ -18,6 +18,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+// event listeners (quhen slots ne QT)
 private slots:
     void on_btnAdd_clicked();
     void on_listWorkouts_itemDoubleClicked(QListWidgetItem *item);

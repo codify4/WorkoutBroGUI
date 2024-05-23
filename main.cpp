@@ -5,13 +5,15 @@
 
 int main(int argc, char *argv[])
 {
+    // Krijojme nje instance te applikacionit
     QApplication a(argc, argv);
-    MainWindow w;
+    MainWindow w; // hapim nje window
 
-    a.setWindowIcon(QIcon(":/images/2.png"));
+    a.setWindowIcon(QIcon(":/images/2.png")); // vendosim icon e app-it
 
-    a.setDesktopFileName("Workout Bro");
+    a.setDesktopFileName("Workout Bro"); // vendosim titulltin e window/dritares
 
+    // bejm style komponentet e GUI-t
     a.setStyle(QStyleFactory::create("Fusion"));
 
     a.setStyleSheet(R"(
@@ -45,6 +47,7 @@ int main(int argc, char *argv[])
         }
     )");
 
+    // nisim app-in
     w.show();
     return a.exec();
 }

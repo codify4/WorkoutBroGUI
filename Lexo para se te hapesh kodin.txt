@@ -1,0 +1,9 @@
+Struktura e kodit eshte e ndare ne disa files. Kjo prej librarise GUI me emrin QT.
+Kemi main.cpp -> funksioni main i cdo programi c++
+mainwindow.cpp -> file qe ka logjiken dhe integrimin e GUI-t
+mainwindow.h -> C++ Header file ku eshte krijuar klasa MainWindow qe nevojitet per integrimin e GUI
+
+** Keto te treja jane files qe permbajne kodin kryesore**
+** Files te tjera jane files konfigurimi qe vijne me IDE e librarise QT **
+
+!!! Per ti bere run App-it duhet te beni unzip folderin qe ju kemi derguar!!!
